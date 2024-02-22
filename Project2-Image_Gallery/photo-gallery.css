@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* by using this our box remain same but the content can be changes */ 
+}
+
+#wrapper{
+    height: 100vh; /* height is equal to viewport height */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* It makes the content center by making left side margin equal to right side margin */
+    padding: 20px;
+}
+
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex; /* default direction of flex is horizontal */
+    flex-wrap: wrap; /* by wrap after filling of some items row1 then flex items comes down in vertical */
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%; /* by this we will get only 3 elements in the row and rest 4% is used for the spacing */
+    position: relative; /* it maintains the card non-static */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img{
+    height: 100%; /* it will get 100% of parent element i.e., height of card*/
+    width: 100%; /* it will get 100% of parent element i.e., width: 32% of card*/
+    filter: grayscale(100%); /* it adds gray filter for all the images */
+    box-shadow: 0 0 20px #333;
+    object-fit: cover; /* optional only minute difference */
+}
+
+.card:hover{
+    transform: scale(1.03); /* it zooms the car when u hover on it */
+    filter: drop-shadow(0 0 10px #333); /* It applies a drop shadow effect to the input image */
+     /* it drops shadow when u hover on it */
+    transition: 0.3s; /* it represents the time taken to effect the transition when we hover on it */
+}
+
+.card:hover img{
+    filter: grayscale(0%); /* it removes the filter and hovers the original color of the image */
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0; /* transparency 100%  - it means the text will be invisible */
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(255, 255, 255, 0)100%);
+    transition: 0.3s;
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
