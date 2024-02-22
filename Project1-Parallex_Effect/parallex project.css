@@ -1,0 +1,109 @@
+*{
+    /* whenever you are doing any project then make sure to use universal selector to tell the below things */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh; /* wrapper height is equal to viewport height*/ 
+    /* max height is vh is 100 */
+    overflow-x: hidden; /* to close the scrolling in the right direction */
+    overflow-y: auto; /* to enable scrolling from top to down*/
+    perspective: 10px; /* to ON the 3-D effect and the value inside it can be anything */
+}
+.container{
+    position: relative;
+    height: 100%; 
+    width: 100%;
+    display: flex; /* Default direction of flex is row*/
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; /*  transform-style property is used to transform child elements to preserve the 3D transformations. */
+    z-index: -1; /* z-index defines the order of overlapping of images (kon si image kis ke upper ayega) */
+    /*Default value of z-index is 0*/
+}
+
+.background, .foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* is used to specify how an <img> or <video> should be resized to fit its container. This property tells the content to fit in the container */
+    z-index: -1; /* if u give z-index = 1 the text will be visible or come over the image */
+    /* if u give z-index = 0 the text will be hidden*/
+    /* for getting the content over the images */
+}
+
+.background{
+    /* making background image far from foreground image */
+    transform: translateZ(-39px) scale(5); /* for making the far image big we use : scale */
+}
+
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+@font-face {
+    font-family: the_bold_font;
+    src: url(theboldfont.ttf);
+}
+
+h1{
+    position: absolute;
+    top: 5rem;
+    font-size: 10rem;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: the_bold_font;
+}
+
+section{
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* this tag specifies that the image is fixed and we can scroll the text*/
+}
+
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+
+.desc{
+    position: absolute;
+    background-color: white;
+    color: black;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5rem;
+    font-weight: 500;
+    font-family: sans-serif;
+}
